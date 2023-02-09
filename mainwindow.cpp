@@ -74,7 +74,7 @@ void MainWindow::on_door1_clicked()
 
     m_selected_door = "1";
 
-    ui->textBrowser->setText(ui->textBrowser->toPlainText() + "Selected: " + m_selected_door + ", ");
+    ui->textBrowser->append("Selected: " + m_selected_door + ", ");
 
     generate_door_state();
 
@@ -89,7 +89,7 @@ void MainWindow::on_door2_clicked()
 
     m_selected_door = "2";
 
-    ui->textBrowser->setText(ui->textBrowser->toPlainText() + "Selected: " + m_selected_door + ", ");
+    ui->textBrowser->append("Selected: " + m_selected_door + ", ");
 
     generate_door_state();
 
@@ -104,7 +104,7 @@ void MainWindow::on_door3_clicked()
 
     m_selected_door = "3";
 
-    ui->textBrowser->setText(ui->textBrowser->toPlainText() + "Selected: " + m_selected_door + ", ");
+    ui->textBrowser->append("Selected: " + m_selected_door + ", ");
 
     generate_door_state();
 
@@ -142,9 +142,9 @@ void MainWindow::on_change_mind_no_clicked()
 
     if (m_selected_door == m_win_door) {
         won_not_changed += 1.0;
-        ui->textBrowser->setText(ui->textBrowser->toPlainText() + "Won!" + "\n");
+        ui->textBrowser->append("Won!" + QString("\n"));
     } else {
-        ui->textBrowser->setText(ui->textBrowser->toPlainText() + "Lost!" + "\n");
+        ui->textBrowser->append("Lost!" + QString("\n"));
     }
 
     ui->w_no_change_value->setText(QString::number( (won_not_changed/game_counter_not_changed)*100.0, 'f', 2 ));
@@ -179,9 +179,9 @@ void MainWindow::on_change_mind_yes_clicked()
 
     if (m_selected_door == m_win_door) {
         won_changed += 1.0;
-        ui->textBrowser->setText(ui->textBrowser->toPlainText() + "Won!" + "\n");
+        ui->textBrowser->append("Won!" + QString("\n"));
     } else {
-        ui->textBrowser->setText(ui->textBrowser->toPlainText() + "Lost!" + "\n");
+        ui->textBrowser->append("Lost!" + QString("\n"));
     }
 
     ui->w_changed_value->setText(QString::number( (won_changed/game_counter_changed)*100.0, 'f', 2 ));
