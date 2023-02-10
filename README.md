@@ -3,6 +3,10 @@ The Monty Hall Paradox Visual Practice Test Program
 
 ![image](https://user-images.githubusercontent.com/123785508/217886808-20f40738-b268-4aea-bbf8-74015017db33.png)
 
+![image](https://user-images.githubusercontent.com/123785508/218158819-3fe2a8c4-07d6-4b1a-8779-fdd188f56443.png)
+
+*3door_auto.exe NUMBER_OF_GAMES CHANGE_OF_MIND(SET false OR true)*
+
 ## Description
 The Monty Hall paradox is a probability puzzle based on a game show scenario. The game show host, Monty Hall, presents the player with three doors. Behind one door is a valuable prize, such as a car, and behind the other two doors are scooters. The player is asked to pick one door, and Monty Hall, who knows what is behind each door, opens one of the other two doors to reveal a scooter. The player is then given the option to either stick with their original door, or switch to the other remaining door.
 
