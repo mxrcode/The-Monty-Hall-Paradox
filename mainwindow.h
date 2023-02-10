@@ -20,8 +20,8 @@ public:
     ~MainWindow();
 
 private slots:
-    void generate_door_state();
-    QString open_next_door(QString win_door);
+    void generate_door_state(QString selected_door);
+    QString open_next_door(QString win_door, QString selected_door);
 
     void form_state_selected();
     void form_state_after();

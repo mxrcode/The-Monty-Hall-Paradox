@@ -26,20 +26,20 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-QString MainWindow::open_next_door(QString win_door) {
+QString MainWindow::open_next_door(QString win_door, QString selected_door) {
 
     std::uniform_int_distribution<int> dist(1, 3);
 
     int next_door = dist(engine);
 
-    if (QString::number(next_door) == win_door) {
-        return open_next_door(win_door);
+    if (QString::number(next_door) == win_door || QString::number(next_door) == selected_door) {
+        return open_next_door(win_door, selected_door);
     } else {
         return QString::number(next_door);
     }
 }
 
-void MainWindow::generate_door_state() {
+void MainWindow::generate_door_state(QString selected_door) {
 
     std::uniform_int_distribution<int> dist(1, 3);
 
@@ -47,7 +47,7 @@ void MainWindow::generate_door_state() {
 
     m_win_door = QString::number(winning_door);
 
-    m_next_door = open_next_door(QString::number(winning_door));
+    m_next_door = open_next_door(QString::number(winning_door), selected_door);
 
     ui->open_next_door->setText(ui->open_next_door->text().replace("#", m_next_door));
     ui->textBrowser->setText(ui->textBrowser->toPlainText() + "Checked: " + m_next_door + ", ");
@@ -76,7 +76,7 @@ void MainWindow::on_door1_clicked()
 
     ui->textBrowser->append("Selected: " + m_selected_door + ", ");
 
-    generate_door_state();
+    generate_door_state(m_selected_door);
 
     ui->selected_door_value->setText(m_selected_door);
 
@@ -91,7 +91,7 @@ void MainWindow::on_door2_clicked()
 
     ui->textBrowser->append("Selected: " + m_selected_door + ", ");
 
-    generate_door_state();
+    generate_door_state(m_selected_door);
 
     ui->selected_door_value->setText(m_selected_door);
 
@@ -106,7 +106,7 @@ void MainWindow::on_door3_clicked()
 
     ui->textBrowser->append("Selected: " + m_selected_door + ", ");
 
-    generate_door_state();
+    generate_door_state(m_selected_door);
 
     ui->selected_door_value->setText(m_selected_door);
 
