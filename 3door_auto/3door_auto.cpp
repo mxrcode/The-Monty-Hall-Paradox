@@ -1,3 +1,5 @@
+// This file is distributed as an optional file, it is not related to the main project and is compiled separately.
+
 #include <iostream>
 #include <vector>
 #include <random>
