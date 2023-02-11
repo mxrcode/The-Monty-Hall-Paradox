@@ -2,11 +2,12 @@
 #include <vector>
 #include <random>
 #include <ctime>
-#include <sstream>
+#include <string>
 
 using namespace std;
 
 mt19937_64 engine(time(nullptr));
+uniform_int_distribution<int> rand_door(0, 2);
 
 int main(int argc, char* argv[])
 {
@@ -18,17 +19,21 @@ int main(int argc, char* argv[])
 		return -1;
 	}
 
-	istringstream iss_com(argv[1]);
 	long number_of_games;
-	if (!(iss_com >> number_of_games)) {
+	try {
+		number_of_games = stol(argv[1]);
+	}
+	catch (const invalid_argument& e) {
 		cerr << "Error in arguments, NUMBER_OF_GAMES: " << argv[1] << endl;
 		return 1;
 	}
 
-	stringstream ss_nog(argv[2]);
 	bool change_of_mind;
-	if (!(ss_nog >> boolalpha >> change_of_mind)) {
-		cerr << "Error in arguments: CHANGE_OF_MIND(SET false OR true)" << endl;
+	try {
+		change_of_mind = (argv[2] == "true") ? true : false;
+	}
+	catch (const invalid_argument& e) {
+		cerr << "Error in arguments, CHANGE_OF_MIND(SET false OR true):" << argv[2] << endl;
 		return 1;
 	}
 
@@ -38,20 +43,17 @@ int main(int argc, char* argv[])
 	vector<bool> door_list;
 
 	for (long i = 0; i < number_of_games; i++) {
+
 		door_list = { 0,0,0 };
+		door_list[rand_door(engine)] = 1; // win_door
 
-		uniform_int_distribution<int> win_door(0, 2);
-		door_list[win_door(engine)] = 1;
-
-		uniform_int_distribution<int> t_selected_door(0, 2);
-		int selected_door = t_selected_door(engine);
+		int selected_door = rand_door(engine);
 
 		int checked_door = 0;
 
 		for (bool x = 1; x;)
 		{
-			uniform_int_distribution<int> t_checked_door(0, 2);
-			int t = t_checked_door(engine);
+			int t = rand_door(engine);
 
 			if (door_list[t] != 1 && t != selected_door) {
 				checked_door = t;
