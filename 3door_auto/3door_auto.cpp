@@ -8,7 +8,7 @@
 
 using namespace std;
 
-std::random_device rd;
+random_device rd;
 mt19937_64 engine(rd());
 uniform_int_distribution<int> rand_door(0, 2);
 
