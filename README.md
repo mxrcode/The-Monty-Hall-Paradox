@@ -15,3 +15,6 @@ The paradox is that it seems counterintuitive, but the player's chances of winni
 So, switching doors after Monty Hall opens one of the scooter doors is the statistically correct move and leads to a 2 in 3 chance of winning the prize, while sticking with the original door results in a 1 in 3 chance of winning. This can be surprising for many people, who initially believe that the odds do not change after Monty Hall opens a scooter door.
 
 In conclusion, the Monty Hall paradox is a classic example of how people often misunderstand conditional probability and the effects of new information on the probability of an event.е
+
+## License
+This software is released under the MIT License, see LICENSE.
