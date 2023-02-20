@@ -1,7 +1,8 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
 
-std::mt19937 engine(time(nullptr));
+std::random_device rd;
+std::mt19937_64 engine(rd());
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
